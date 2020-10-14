@@ -15,6 +15,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'simplecov'
+
 end
 
 group :development do
@@ -23,7 +27,6 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 end
