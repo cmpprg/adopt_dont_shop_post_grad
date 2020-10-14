@@ -25,9 +25,9 @@ RSpec.describe 'As a user on the shelters index page', type: :feature do
       zip: '12345'
     )
 
-    visit '/'
+    visit '/shelters'
 
-    expect(current_path).to eql('/')
+    expect(current_path).to eql('/shelters')
 
     within('.shelter-list') do
       within(".shelter-list-item-#{shelter_1.id}") do
