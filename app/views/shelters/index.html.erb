@@ -1,3 +1,7 @@
 <section class="shelter-list">
-
+  <ul>
+    <% @shelters.each do |shelter| %>
+      <li id="shelter-list-item-<%= shelter.id %>"><%= shelter.name %></li>
+    <% end %>
+  </ul>
 </section>

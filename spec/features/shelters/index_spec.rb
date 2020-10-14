@@ -30,13 +30,13 @@ RSpec.describe 'As a user on the shelters index page', type: :feature do
     expect(current_path).to eql('/shelters')
 
     within('.shelter-list') do
-      within(".shelter-list-item-#{shelter_1.id}") do
+      within("#shelter-list-item-#{shelter_1.id}") do
         expect(page).to have_content(shelter_1.name)
       end
-      within(".shelter-list-item-#{shelter_2.id}") do
+      within("#shelter-list-item-#{shelter_2.id}") do
         expect(page).to have_content(shelter_2.name)
       end
-      within(".shelter-list-item-#{shelter_3.id}") do
+      within("#shelter-list-item-#{shelter_3.id}") do
         expect(page).to have_content(shelter_3.name)
       end
     end
