@@ -2,28 +2,11 @@ require 'rails_helper'
 
 RSpec.describe 'As a user on the shelter show page', type: :feature do
   before do
-    @shelter_1 = Shelter.create(
-      name: 'Shelter 1',
-      address: 'Address 1',
-      city: 'City 1',
-      state: 'State 1',
-      zip: '12345'
-    )
-    @shelter_2 = Shelter.create(
-      name: 'Shelter 2',
-      address: 'Address 2',
-      city: 'City 2',
-      state: 'State 2',
-      zip: '12345'
-    )
-    @shelter_3 = Shelter.create(
-      name: 'Shelter 3',
-      address: 'Address 3',
-      city: 'City 3',
-      state: 'State 3',
-      zip: '12345'
-    )
+    @shelter_1 = create(:shelter)
+    @shelter_2 = create(:shelter)
+    @shelter_3 = create(:shelter)
   end
+
   it "I see the shelter with that id including the shelters name, address, city, state, and zip" do
     visit "/shelters/#{@shelter_2.id}"
 
@@ -55,9 +38,11 @@ RSpec.describe 'As a user on the shelter show page', type: :feature do
 
     expect(page).to have_current_path('/shelters')
 
-    expect(page).not_to have_content('Shelter 2')
-    expect(page).not_to have_content('Address 2')
-    expect(page).not_to have_content('City 2')
-    expect(page).not_to have_content('State 2')
+    expect(page).not_to have_content(@shelter_2.name)
+    expect(page).not_to have_content(@shelter_2.address)
+    expect(page).not_to have_content(@shelter_2.city)
+    expect(page).not_to have_content(@shelter_2.state)
+    expect(page).not_to have_content(@shelter_2.zip)
+
   end
 end

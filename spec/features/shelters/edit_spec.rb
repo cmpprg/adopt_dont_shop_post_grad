@@ -2,13 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'As a user on the edit shelter page', type: :feature do
   before do
-    @shelter = Shelter.create(
-      name: 'Shelter 1',
-      address: 'Address 1',
-      city: 'City 1',
-      state: 'State 1',
-      zip: '12345'
-    )
+    @shelter = create(:shelter)
   end
 
   it "I can see name, address, city, state, or zip fields to enter new info into." do
