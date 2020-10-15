@@ -43,6 +43,6 @@ RSpec.describe 'As a user on the shelter show page', type: :feature do
 
     click_link('Edit Shelter')
 
-    expect(page).to have_current_path("/shelters/#{shelter_2.id}/edit")
+    expect(page).to have_current_path("/shelters/#{@shelter_2.id}/edit")
   end
 end
