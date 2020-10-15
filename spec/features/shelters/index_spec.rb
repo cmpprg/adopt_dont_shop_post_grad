@@ -42,12 +42,12 @@ RSpec.describe 'As a user on the shelters index page', type: :feature do
     end
   end
 
-  it "I can see a link name 'Create Shelter', when clicked takes me to a shelter creation page" do
+  it "I can see a link name 'New Shelter', when clicked takes me to a shelter creation page" do
     visit '/shelters'
 
-    expect(page).to have_link('Create Shelter')
+    expect(page).to have_link('New Shelter')
 
-    click_link('Create Shelter')
+    click_link('New Shelter')
 
     expect(current_path).to eql('/shelters/new')
   end
