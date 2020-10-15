@@ -30,6 +30,7 @@ RSpec.describe 'As a user on the edit shelter page', type: :feature do
     click_button("Update Shelter")
 
     expect(page).to have_current_path("/shelters/#{@shelter.id}")
+
     expect(page).not_to have_content('Shelter 1')
     expect(page).to have_content('other shelter name')
   end

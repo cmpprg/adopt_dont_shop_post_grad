@@ -20,7 +20,8 @@ class SheltersController < ApplicationController
   end
 
   def update
-
+    Shelter.update(params[:id], shelter_params)
+    redirect_to "/shelters/#{params[:id]}"
   end
 
   private
