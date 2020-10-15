@@ -10,11 +10,12 @@ RSpec.describe 'As a user on the new shelter form page' do
     fill_in('state', with: 'new shelter state')
     fill_in('zip', with: 'new shelter zip')
 
-    click_button('Create Shelter')
+    click_on('Create Shelter')
 
-    expect(current_path).to eql('/shelters')
+    expect(page).to have_current_path('/shelters')
 
     within('.shelter-list') do
+
       expect(page).to have_content('new shelter name')
     end
   end
