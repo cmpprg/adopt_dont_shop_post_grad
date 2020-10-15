@@ -27,11 +27,11 @@ RSpec.describe 'As a user on the shelter show page', type: :feature do
     visit "/shelters/#{shelter_2.id}"
 
     within('.shelter-info') do
-      expect(page).to have_content(shelter_1.name)
-      expect(page).to have_content(shelter_1.address)
-      expect(page).to have_content(shelter_1.city)
-      expect(page).to have_content(shelter_1.state)
-      expect(page).to have_content(shelter_1.zip)
+      expect(page).to have_content(shelter_2.name)
+      expect(page).to have_content(shelter_2.address)
+      expect(page).to have_content(shelter_2.city)
+      expect(page).to have_content(shelter_2.state)
+      expect(page).to have_content(shelter_2.zip)
     end
   end
 end
