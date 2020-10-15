@@ -36,7 +36,7 @@ RSpec.describe 'As a user on the shelter show page', type: :feature do
     end
   end
 
-  it "I can click a link called 'Update Shelter' that takes me to form to update info" do
+  it "I can click a link 'Update Shelter' that takes me to form to update info" do
     visit "/shelters/#{@shelter_2.id}"
 
     expect(page).to have_link('Edit Shelter')
@@ -44,5 +44,20 @@ RSpec.describe 'As a user on the shelter show page', type: :feature do
     click_link('Edit Shelter')
 
     expect(page).to have_current_path("/shelters/#{@shelter_2.id}/edit")
+  end
+
+  it "I can click a link 'Delete Shelter' that deletes the record and redirects to shelter index page" do
+    visit "/shelters/#{@shelter_2.id}"
+
+    expect(page).to have_link('Delete Shelter')
+
+    click_link('Delete Shelter')
+
+    expect(page).to have_current_path('/shelters')
+
+    expect(page).not_to have_content('Shelter 2')
+    expect(page).not_to have_content('Address 2')
+    expect(page).not_to have_content('City 2')
+    expect(page).not_to have_content('State 2')
   end
 end
