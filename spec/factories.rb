@@ -3,7 +3,7 @@ require 'faker'
 FactoryBot.define do
 
   factory :shelter do
-    name { Faker::Company.unique.name }
+    name { "#{Faker::Company.unique.name} Shelter" }
     address { Faker::Address.unique.street_address }
     city { Faker::Address.unique.city }
     state { Faker::Address.unique.state_abbr }
@@ -11,10 +11,10 @@ FactoryBot.define do
   end
 
   factory :pet do
-    image { Faker::Company.unique.name }
-    name { Faker::Address.unique.street_address }
-    age { Faker::Address.unique.city }
-    sex { Faker::Address.unique.state_abbr }
+    image { Faker::Avatar.image }
+    name { Faker::Name.unique.name_with_middle }
+    age { Faker::Number.between(from: 1, to: 15) }
+    sex { ['Male', 'Female'].sample }
 
     shelter
   end
