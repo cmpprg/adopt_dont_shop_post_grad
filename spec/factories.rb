@@ -15,6 +15,7 @@ FactoryBot.define do
     name { Faker::Name.unique.name_with_middle }
     age { Faker::Number.between(from: 1, to: 15) }
     sex { ['Male', 'Female'].sample }
+    description { Faker::Books::Dune.saying }
 
     shelter
   end

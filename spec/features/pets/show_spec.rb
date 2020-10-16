@@ -22,7 +22,7 @@ RSpec.describe 'As a user on the pet show page' do
 
     visit "/pets/#{pet_2.id}"
 
-    within('.pet_info') do
+    within('.pet-info') do
       expect(page).to have_content(pet_2.name)
       expect(page).to have_content(pet_2.description)
       expect(page).to have_content(pet_2.age)

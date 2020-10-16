@@ -11,6 +11,9 @@ class Pet < ApplicationRecord
   validates :sex,
     presence: true
 
+  validates :description,
+    presence: true
+
   validates :adoption_status,
     presence: true,
     inclusion: { in: ['adoptable', 'pending'] }
