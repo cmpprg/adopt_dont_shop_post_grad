@@ -12,9 +12,15 @@ class PetsController < ApplicationController
   end
 
   def update
-    pet = Pet.find(params[:id])
-    pet.update(pet_params)
+    pet = Pet.update(params[:id], pet_params)
+
     redirect_to action: :show, id: pet.id
+  end
+
+  def destroy
+    Pet.destroy(params[:id])
+
+    redirect_to '/pets'
   end
 
   private
