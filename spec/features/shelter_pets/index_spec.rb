@@ -43,4 +43,14 @@ RSpec.describe 'As a user on the shelter pets index page' do
 
     expect(page).not_to have_content(pet_4.name)
   end
+
+  it "I can click on a link'Create Pet' that will take me to new pet form" do
+    shelter = create(:shelter)
+
+    visit "/shelters/#{shelter.id}/pets"
+
+    click_link('New Pet')
+
+    expect(page).to have_current_path("/shelters/#{shelter.id}/pets/new")
+  end
 end
