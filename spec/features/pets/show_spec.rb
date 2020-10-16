@@ -36,4 +36,14 @@ RSpec.describe 'As a user on the pet show page' do
     end
   end
 
+  it "I can click link 'Edit Pet' and be taken to form" do
+    pet = create(:pet)
+
+    visit "/pets/#{pet.id}"
+
+    click_link('Edit Pet')
+
+    expect(page).to have_current_path("/pets/#{pet.id}/edit")
+  end
+
 end
