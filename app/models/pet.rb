@@ -16,4 +16,8 @@ class Pet < ApplicationRecord
     inclusion: { in: ['adoptable', 'pending'] }
 
   belongs_to :shelter
+
+  def is_adoptable?
+    adoption_status == 'adoptable'
+  end
 end

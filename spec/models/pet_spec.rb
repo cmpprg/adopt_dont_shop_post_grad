@@ -15,6 +15,14 @@ RSpec.describe Pet, type: :model do
   end
 
   describe 'instance methods' do
+    before do
+      @pet_1 = FactoryBot.create(:pet, adoption_status: 'adoptable')
+      @pet_2 = FactoryBot.create(:pet, adoption_status: 'pending')
+    end
 
+    it "is adoptable" do
+      expect(@pet_1.is_adoptable?).to eql(true)
+      expect(@pet_2.is_adoptable?).to eql(false)
+    end
   end
 end
