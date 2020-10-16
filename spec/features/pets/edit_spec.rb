@@ -47,12 +47,12 @@ RSpec.describe 'As a user on the edit pet page' do
     old_age = pet.age
     old_sex = pet.sex
     new_age = 5
-    new_sex = 'female'
+    new_sex = 'femal'
 
     visit "pets/#{pet.id}/edit"
 
-    fill_in :name, with: new_age
-    fill_in :description, with: new_sex
+    fill_in :age, with: new_age
+    fill_in :sex, with: new_sex
 
     click_button('Update Pet')
 
