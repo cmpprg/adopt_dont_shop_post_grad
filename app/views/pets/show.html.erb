@@ -1,0 +1,11 @@
+<%= link_to 'Edit Pet', "/pets/#{@pet.id}/edit" %>
+<%= link_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete %>
+
+<section class="pet-info">
+  <p><%= @pet.name %></p>
+  <p><%= @pet.description %></p>
+  <p><%= @pet.age %></p>
+  <p><%= @pet.sex %></p>
+  <p><%= @pet.adoption_status %></p>
+  <%= image_tag @pet.image %>
+</section>
