@@ -39,7 +39,6 @@ RSpec.describe 'As a user on the shelter pets index page' do
         pet_3_image = find('img')
         expect(pet_3_image[:src]).to eql(pet_3.image)
       end
-      save_and_open_page
     end
 
     expect(page).not_to have_content(pet_4.name)
