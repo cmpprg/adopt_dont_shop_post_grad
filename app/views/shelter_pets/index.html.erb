@@ -1,5 +1,7 @@
+
+<%= link_to 'New Pet', "/shelters/#{@shelter.id}/pets/new" %>
 <section class="shelter-pets-list">
-  <% @shelter_pets.each do |pet| %>
+  <% @shelter.pets.each do |pet| %>
     <section id="shelter-pets-list-item-<%= pet.id %>">
       <p><%= pet.name %></p>
       <p><%= pet.age %></p>
