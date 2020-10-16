@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  #shelters resources hand rolled
-
+  #shelters
   get '/shelters', to: 'shelters#index'
   post '/shelters', to: 'shelters#create'
   get '/shelters/new', to: 'shelters#new'
@@ -9,6 +8,9 @@ Rails.application.routes.draw do
   patch '/shelters/:id', to: 'shelters#update'
   delete '/shelters/:id', to: 'shelters#destroy'
 
-  #pets stuff
+  #pets
   get '/pets', to: 'pets#index'
+
+  #shelter_pets
+  get '/shelters/:id/pets', to: 'shelter_pets#index'
 end
