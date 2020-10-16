@@ -1,0 +1,10 @@
+<section class="shelter-pets-list">
+  <% @shelter_pets.each do |pet| %>
+    <section id="shelter-pets-list-item-<%= pet.id %>">
+      <p><%= pet.name %></p>
+      <p><%= pet.age %></p>
+      <p><%= pet.sex %></p>
+      <%= image_tag pet.image %>
+    </section>
+  <% end %>
+</section>
