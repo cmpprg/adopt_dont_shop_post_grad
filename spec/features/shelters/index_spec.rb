@@ -32,4 +32,27 @@ RSpec.describe 'As a user on the shelters index page', type: :feature do
 
     expect(current_path).to eql('/shelters/new')
   end
+
+  it "I can click edit shelter link, that takes me to edit shelter page, that is located with every shelter." do
+    shelter_1 = create(:shelter)
+    shelter_2 = create(:shelter)
+    shelter_3 = create(:shelter)
+
+    visit '/shelters'
+
+    within("#shelter-list-item-#{shelter_1.id}") do
+      expect(page).to have_link('Edit Shelter')
+    end
+
+    within("#shelter-list-item-#{shelter_2.id}") do
+      expect(page).to have_link('Edit Shelter')
+    end
+
+    within("#shelter-list-item-#{shelter_3.id}") do
+      expect(page).to have_link('Edit Shelter')
+      click_link('Edit Shelter')
+    end
+
+    expect(page).to have_current_path("/shelters/#{shelter_3.id}/edit")
+  end
 end

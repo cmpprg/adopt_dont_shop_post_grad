@@ -3,7 +3,12 @@
 
   <ul>
     <% @shelters.each do |shelter| %>
-      <li id="shelter-list-item-<%= shelter.id %>"><%= shelter.name %></li>
+    <div id="shelter-list-item-<%= shelter.id %>">
+      <li ><%= shelter.name %></li>
+      <%= link_to 'Edit Shelter', "/shelters/#{shelter.id}/edit" %>
+    </div>
+
+
     <% end %>
   </ul>
 </section>
