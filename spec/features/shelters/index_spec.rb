@@ -49,10 +49,33 @@ RSpec.describe 'As a user on the shelters index page', type: :feature do
     end
 
     within("#shelter-list-item-#{shelter_3.id}") do
-      expect(page).to have_link('Edit Shelter')
       click_link('Edit Shelter')
     end
 
     expect(page).to have_current_path("/shelters/#{shelter_3.id}/edit")
+  end
+
+  it "I can see and click a link to delete shelter next to every shelter on page." do
+    shelter_1 = create(:shelter)
+    shelter_2 = create(:shelter)
+    shelter_3 = create(:shelter)
+
+    visit '/shelters'
+
+    within("#shelter-list-item-#{shelter_1.id}") do
+      expect(page).to have_link('Delete Shelter')
+    end
+
+    within("#shelter-list-item-#{shelter_3.id}") do
+      expect(page).to have_link('Delete Shelter')
+    end
+
+    within("#shelter-list-item-#{shelter_2.id}") do
+      click_link('Delete Shelter')
+    end
+
+    expect(page).to have_current_path('/shelters')
+    expect(page).to have_no_css("#shelter-list-item-#{shelter_2.id}")
+    expect(Shelter.exists?(shelter_2.id)).to eql(false)
   end
 end
