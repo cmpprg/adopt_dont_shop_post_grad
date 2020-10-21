@@ -6,6 +6,7 @@
     <div id="shelter-list-item-<%= shelter.id %>">
       <li ><%= shelter.name %></li>
       <%= link_to 'Edit Shelter', "/shelters/#{shelter.id}/edit" %>
+      <%= link_to 'Delete Shelter', "/shelters/#{shelter.id}", method: :delete %>
     </div>
 
 
